@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>2주차 과체</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        * {
+            font-family: 'Stylish', sans-serif;
+        }
+
+        .wrap {
+            width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            padding: 10px;
+        }
+
+        .product_img {
+
+            height: 400px;
+            margin: 20px;
+            background-image: url("https://t1.daumcdn.net/liveboard/glab/cb5d0f07afa04de6b917f855e3a43277.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product_content {
+
+            font-size: 22px;
+
+        }
+
+        .order-form {
+
+            width: 500px;
+            margin-top: 20px;
+
+        }
+
+        .product-title {
+
+            font-family: 'Jua', sans-serif;
+            font-size: 40px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .product-price {
+
+            font-size: 16px;
+            font-weight: normal;
+        }
+
+        .order_btn {
+
+            width: 200px;
+            margin: auto;
+            display: block;
+            margin-top: 40px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .conv-won {
+            font-size: 20px;
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            // alert('홈페이지 로딩')
+            $.ajax({
+                type: "GET",
+                url: "https://api.manana.kr/exchange/rate.json",
+                data: {},
+                success: function (response) {
+                    // console.log(response[1]['rate']);
+                    let rate = response[1]['rate'];
+                    $('#convert_won').text(rate + '원');
+                }
+            })
+        });
+
+    </script>
+</head>
+
+<body>
+
+<div class="wrap">
+
+    <div class="product_img">
+        <h1>불로장생</h1>
+    </div>
+    <div class="product_content">
+        <p class="product-title">불로장생초 <span class="product-price">가격 1,000,000원 / 개</span></p>
+        <p>이 상품은 용왕이 찾지 못한 토끼의 간을 찾아 빨간망토의 늑대와 아기돼지 삼형제의 숨결이 고루 녹아 있는...
+            먹으면 120세까지 살 수 있다는 전설의 명약.</p>
+        <p>이 상품은 용왕이 찾지 못한 토끼의 간을 찾아 빨간망토의 늑대와 아기돼지 삼형제의 숨결이 고루 녹아 있는...
+            먹으면 120세까지 살 수 있다는 전설의 명약.</p>
+        <p>이 상품은 용왕이 찾지 못한 토끼의 간을 찾아 빨간망토의 늑대와 아기돼지 삼형제의 숨결이 고루 녹아 있는...
+            먹으면 120세까지 살 수 있다는 전설의 명약.</p>
+    </div>
+    <div class="order-form">
+
+        <p class="product-title">주문하기</p>
+        <p class="conv-won">달러-원환율 : <span id="convert_won"></span></p>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">주문자 성함</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">수량</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+                <option selected>수량을 선택하세요(박스당 10개)</option>
+                <option value="1">1 박스</option>
+                <option value="2">3 박스</option>
+                <option value="3">10 박스</option>
+            </select>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">주소</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">전화번호</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary order_btn">주문하기</button>
+
+</div>
+
+
+</body>
+
+</html>
